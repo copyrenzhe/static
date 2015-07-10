@@ -3,7 +3,11 @@ var gulp = require('gulp'),
 	less = require('gulp-less')
     autoprefixer = require('gulp-autoprefixer');
     header = require('gulp-header');
-    footer = require('gulp-footer');
+    footer = require('gulp-footer')
+    clean = require('gulp-clean');
+
+var src = './src',
+    dist = './dist';
 
 var pkg = require('./package.json');
 var banner = ['/**',
@@ -16,12 +20,17 @@ var banner = ['/**',
             ].join('\n');
 
 gulp.task('testLess',function(){
-	gulp.src('src/less/index.less')
-		.pipe(less())
-        .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-        .pipe(header(banner,{ pkg : pkg }))
-        .pipe(footer(banner,{ pkg : pkg }))
-		.pipe(gulp.dest('src/css'));
+    return	gulp.src('src/less/index.less')
+        		.pipe(less())
+                .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+                .pipe(header(banner,{ pkg : pkg }))
+                .pipe(footer(banner,{ pkg : pkg }))
+        		.pipe(gulp.dest('dist/css'));
+});
+
+gulp.task('clean',function(){
+    return gulp.src(dist,{read:false})
+                .pipe(clean());
 });
 
 gulp.task('default',['testLess','elseTask']);
