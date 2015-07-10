@@ -1,0 +1,48 @@
+/**
+  * static - a resource of static
+  * @version v1.0.0
+  * @link https://github.com/copyrenzhe/static
+  * @license ISC
+  */
+.allhero {
+  padding: 0 10px 10px 20px;
+  overflow: hidden;
+}
+.allhero .columnHeader {
+  margin: 10px 0;
+  height: 42px;
+  overflow: hidden;
+}
+.allhero .strhero,
+.allhero .agihero,
+.allhero .inthero {
+  overflow: hidden;
+}
+.allhero .strhero .column,
+.allhero .agihero .column,
+.allhero .inthero .column {
+  height: 42px;
+  line-height: 42px;
+  font-size: 16px;
+  padding: 6px 10px 15px 40px;
+}
+.allhero .strhero .herolist,
+.allhero .agihero .herolist,
+.allhero .inthero .herolist {
+  float: left;
+}
+.allhero .strhero #columnStr {
+  background: url('http://cdn.dota2.com.cn/apps/dota2/images/heropedia/overviewicon_str.png') no-repeat 0 center;
+}
+.allhero .agihero #columnAgi {
+  background: url('http://cdn.dota2.com.cn/apps/dota2/images/heropedia/overviewicon_agi.png') no-repeat 0 center;
+}
+.allhero .inthero #columnInt {
+  background: url('http://cdn.dota2.com.cn/apps/dota2/images/heropedia/overviewicon_int.png') no-repeat 0 center;
+}
+/**
+  * static - a resource of static
+  * @version v1.0.0
+  * @link https://github.com/copyrenzhe/static
+  * @license ISC
+  */
