@@ -4,7 +4,8 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer');
     header = require('gulp-header');
     footer = require('gulp-footer')
-    clean = require('gulp-clean');
+    clean = require('gulp-clean')
+    concat = require('gulp-concat');
 
 var src = './src',
     dist = './dist';
@@ -19,8 +20,8 @@ var banner = ['/**',
                 ''
             ].join('\n');
 
-gulp.task('testLess',function(){
-    return	gulp.src('src/less/index.less')
+gulp.task('less',function(){
+    return	gulp.src('src/less/*.less')
         		.pipe(less())
                 .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
                 .pipe(header(banner,{ pkg : pkg }))
@@ -29,8 +30,14 @@ gulp.task('testLess',function(){
 });
 
 gulp.task('clean',function(){
-    return gulp.src(dist,{read:false})
+    return  gulp.src(dist,{read:false})
                 .pipe(clean());
 });
+
+gulp.task('concat',function(){
+    return  gulp.src(dist+'/css/*.css')
+                .pipe(concat('all.css'))
+                .pipe(gulp.dest(dist+'/css/'));
+})
 
 gulp.task('default',['testLess','elseTask']);
