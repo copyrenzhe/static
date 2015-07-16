@@ -1,0 +1,40 @@
+.ui-panel{
+  @titleHeight : 30px;
+  @padding : @boxPadding;
+  padding: @padding;border:1px solid @borderColor;
+  background-color: #fff;
+  .ui-panel-title{
+    position: relative;
+    line-height: @titleHeight;
+    height: @titleHeight;
+    border-bottom: 2px solid @borderColor;
+    .ui-panel-name{
+      float:left;font-size: 16px;
+    }
+    .ui-panel-side{
+      float:right;
+      line-height: @titleHeight;
+      a{
+        &:hover{
+          color:@blue;
+        }
+      }
+      
+    }
+  }
+  .ui-panel-content{
+    padding-top: @padding;
+  }
+  
+  &.ui-panel-condensed{
+    padding: 0;
+    .ui-panel-title{
+      padding: 0 10px;
+      border-bottom-width: 1px;
+    }
+    .ui-panel-content{
+      padding: 0;
+    }
+  }
+
+}

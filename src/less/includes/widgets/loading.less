@@ -1,0 +1,26 @@
+.ui-loading{
+  position: absolute;z-index: 100;
+  top:0;left:0;width: 100%;height: 100%;
+  .ui-loading-overlay{
+    position: absolute;z-index: 1;
+    top:0;left:0;width: 100%;height: 100%;
+    background-color: #000;
+  }
+  .ui-loading-box{
+    position: absolute;z-index: 2;.border-radius(5px);
+    top:50%;left:50%;height: 50px;line-height: 50px;margin-top: -25px;margin-left: -50px;
+    text-align: center;background-color: #fff;
+    .box-shadow(0 0 10px rgba(0, 0, 0, 0.34));
+    .ui-loading-text{
+      display: inline-block;padding-right: 10px;font-size: 14px;
+      vertical-align: top;
+    }
+  }
+}
+.ui-loading-parent{
+  position: relative;
+}
+.ui-loading-icon{
+  display: inline-block;width: 50px;height: 50px;vertical-align: top;
+  background: url(../images/core/loading-30.gif) center center no-repeat transparent;
+}

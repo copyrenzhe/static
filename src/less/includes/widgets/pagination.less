@@ -1,0 +1,81 @@
+.pagination{
+  @paginationFontSize : 14px;
+  @paginationLineHeight : @inputLineHeight;
+  color: #666;line-height: @paginationLineHeight;
+  font-size:@paginationFontSize;
+  a{
+    display: inline-block;
+    color: #666;
+    font-size:@paginationFontSize;
+    text-decoration: none;
+    font-weight: normal;
+    text-align: center;
+    border: 1px solid #BBB;
+    min-width: @paginationLineHeight;
+    padding: @paddingVerticalBase;
+    margin: 0 5px 0 0;
+    border-radius: @borderRadiusBase;
+
+    &.ellipse{
+      border:none;
+      cursor: default;
+      border-radius: 0;
+      box-shadow: none;
+      line-height: @paginationLineHeight+2;
+    }
+    &.current{
+      background: #666;
+      color: #FFF;
+      border-color: #444;
+      cursor: default;
+    }
+  }
+  span{
+    display: inline-block;
+    font-weight: normal;
+    text-align: center;
+    min-width: 14px;
+    margin: 0 5px 0 0;
+  }
+  .skip-page{
+    .skip{
+      display: inline-block;
+      width: 2em;
+      border: 1px solid #BBB;
+      border-radius: @borderRadiusBase;
+      padding: @paddingVerticalBase @paddingHorizontalBase;
+      &:focus{
+        border-color: @inputBorderFocusColor;
+      }
+    }
+  }
+  .page-size{
+    display: inline-block;
+    border: 1px solid #BBB;
+    border-radius: @borderRadiusBase;
+    padding: @paddingVerticalBase @paddingHorizontalBase;
+    height:floor(@paginationLineHeight+(@paddingVerticalBase+1)*2);
+    &:focus{
+      border-color: @inputBorderFocusColor;
+    }
+  }
+
+  /* 小按钮 */
+  &.pagination-sm{
+    @paginationFontSize : 12px;
+    @paginationLineHeight : floor(@inputLineHeight*0.8);
+    line-height: @paginationLineHeight;
+    font-size: @paginationFontSize;
+    a{
+      font-size: @paginationFontSize;
+      min-width: @paginationLineHeight;
+      padding: floor(@paddingVerticalBase/2);
+    }
+    &.ellipse{
+      line-height: @paginationLineHeight+2;
+    }
+    .page-size{
+      height:floor(@paginationLineHeight+(@paddingVerticalBase+1)*2);
+    }
+  }
+}

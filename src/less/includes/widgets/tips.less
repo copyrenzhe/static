@@ -1,0 +1,30 @@
+.ui-tips{
+  @height : 50px;
+  @padding : 14px;
+  position: fixed;top: 50%;margin-top:-@height/2;left:0;
+  width: 100%;z-index: 10000;
+  text-align: center;
+  font-size: 14px;
+  .ui-tips-content{
+    display: inline-block;max-width: 600px;text-align: left;
+    border: 1px solid @borderColor;
+    padding: @padding @padding*2;line-height: 1.4;
+    .border-radius(@borderRadiusBase);
+    &.ui-tips-info{
+      border:1px solid @borderColor;
+      color:@colorBase;
+      background-color: #f1f1f1;
+    }
+    &.ui-tips-success{
+      border:1px solid #3c763d;
+      color:#3c763d;
+      background-color: #dff0d8;
+    }
+    &.ui-tips-error{
+      border:1px solid #a94442;
+      color:#a94442;
+      background-color: #f2dede;
+    }  
+  }
+  
+}

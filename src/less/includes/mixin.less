@@ -1,0 +1,44 @@
+@import "lesshat.less";
+
+.clearfix(){
+  &:before,
+  &:after{
+    content:"";display:table;
+  }
+  &:after{
+    clear:both;
+  }
+  *zoom:1;
+}
+.zoom(){
+  overflow: hidden;
+  *zoom:1;
+}
+.size(@width:0; @height:@width) {
+  width: @width;
+  height: @height;
+}
+
+.text-overflow(){
+  overflow: hidden;text-overflow:ellipsis;white-space: nowrap;
+}
+.inline-block(){
+  display: inline-block;*zoom:1;*display: inline;
+}
+.arrow(@direction:bottom;@size:4px;@color:#000){
+  display: inline-block;.size();
+  border:@size solid transparent;
+  vertical-align: middle;
+  & when(@direction = top) {
+    border-bottom-color: @color;
+  }
+  & when(@direction = right) {
+    border-left-color: @color;
+  }
+  & when(@direction = bottom) {
+    border-top-color: @color;
+  }
+  & when(@direction = left) {
+    border-right-color: @color;
+  }
+}

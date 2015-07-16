@@ -1,0 +1,113 @@
+.form{
+  /* vars */
+  @inputLineHeight : 20px;
+  @inputWidth : 170px;
+  @inputBorder : 1px solid #ccc;
+  @inputBorderFocusColor : #66afe9;
+  @height : floor(@inputLineHeight+(@paddingVerticalBase+1)*2);
+
+  .form-group{
+    margin-bottom: 6px;
+    _zoom:1;_position:relative;
+  }
+  .form-label{
+    display: inline-block;vertical-align: middle;
+    line-height: @height;
+    font-size:@fontSizeBase;
+    .text-overflow();
+  }
+  .form-box{
+    overflow: hidden;*zoom:1;
+    .btn{
+      &.form-control-width{
+        width:@inputWidth+@paddingHorizontalBase*2;padding-left: 0;padding-right: 0;
+      }
+    }
+    button{
+      &.btn.form-control-width{
+        width:@inputWidth+(@paddingHorizontalBase+1)*2;padding-left: 0;padding-right: 0;
+      }
+    }
+  }
+  .form-control{
+    display: inline-block;border-radius:@borderRadiusBase;
+    font-size: @fontSizeBase;color:#555;
+    width:@inputWidth;line-height: @inputLineHeight;height: @inputLineHeight;vertical-align: middle;
+    border:@inputBorder;padding:@paddingVerticalBase @paddingHorizontalBase;
+    .box-shadow(1px 1px 1px #eee inset);
+    &:focus{
+      border-color:@inputBorderFocusColor
+    }
+    &.half{
+      width:@inputWidth/2
+    }
+  }
+  select.form-control{
+    width:@inputWidth+(@paddingHorizontalBase+1)*2;
+    height:@height;
+  }
+   
+  
+  .radio,.checkbox,.form-text{
+    display:inline-block;line-height: @inputLineHeight;vertical-align: middle;
+    font-size:@fontSizeBase;padding:(@paddingVerticalBase+1) @paddingHorizontalBase;
+  }
+  .radio,.checkbox{
+    position: relative;padding-left: 16px;
+    input,.ui-checkbox-three{
+      position: absolute;margin:4px 0 0 -16px;*margin: 0px 0 0 -20px;_margin-top:-4px;
+    }
+  }
+  /*三态复选框*/
+  .ui-checkbox-three{
+    display: inline-block;vertical-align: middle;
+    width:12px;height:12px;overflow: hidden;position: relative;
+    .ui-checkbox-three-icon{
+      position:absolute;left:0;top:0;width:100%;height: 100%;
+      background: url(../../../images/core/checkbox-three.png) no-repeat 0 0 transparent;
+    }
+    &.ui-state-unchecked{
+      .ui-checkbox-three-icon{
+        background-position: 0 0;
+      }
+    }
+    &.ui-state-halfchecked{
+      .ui-checkbox-three-icon{
+        background-position: 0 -12px;
+      }
+    }
+    &.ui-state-checked{
+      .ui-checkbox-three-icon{
+        background-position: 0 -24px;
+      }
+    }
+  }
+
+
+  label.validate-error{
+    display:inline-block;vertical-align: middle;
+    font-size:@fontSizeBase;color:#a94442;border-radius: @borderRadiusBase;
+    padding:(@paddingVerticalBase+1) @paddingHorizontalBase;background-color: #f2dede;
+
+  }
+  label.validate-success{
+    font:normal normal normal 14px/1 FontAwesome;
+    color:#3c763d;background-color: #dff0d8;padding: 0;
+  }
+  input.validate-error{
+    border-color:#a94442;
+  }
+
+  &.align-right{
+    .form-label{
+      float:left;width:5em;text-align: right;line-height: @inputLineHeight;
+      padding:@paddingVerticalBase+1 @paddingHorizontalBase;margin-right: @paddingHorizontalBase;
+    }
+    &.half-group{
+      .clearfix();
+      .form-group{
+        width:50%;float:left;
+      }
+    }
+  }
+}

@@ -1,0 +1,101 @@
+.responsive-table{
+  overflow-x:auto;
+  .table{
+    td,th{
+      display: none;
+      
+      &.priority1{
+        display: table-cell;display: inline\9;
+      }
+      &.show{
+        display: table-cell!important;display: inline\9!important;
+      }
+      &.hide{
+        display: none!important;
+      }
+    }
+    
+  }
+  .sticky-table-header{
+    overflow: hidden;position: fixed;
+  }
+
+}
+.responsive-table-wrapper{
+  .responsive-table-toolbar{
+    margin-bottom: 10px;
+    .clearfix();
+    .actions{
+      float:left;line-height: @inputLineHeight+(@paddingVerticalBase+1)*2;
+      .link{
+        display: inline-block;margin-right: 14px;
+        font-size: 14px;
+        vertical-align: bottom;
+        height: 24px;
+        &:hover{
+          color:@blue;
+        }
+      }
+      .fa{
+        font-size: 18px;margin-right: 4px;
+      }
+    }
+    .btn-group{
+      float:right;
+    }
+    .ui-dropdown-menu{
+      label{
+        display: block;padding: 3px 20px;clear: both;font-weight: 400;
+        line-height: 1.42857143;color: #333;white-space: nowrap;cursor:pointer;
+        
+        &:hover{background: #f7f5ed;}
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .responsive-table .table{
+    td,th{
+      &.priority2{
+        display: table-cell;display: inline\9;
+      }
+    }
+  }
+}
+@media screen and (min-width: 640px) {
+  .responsive-table .table{
+    td,th{
+      &.priority3{
+        display: table-cell;display: inline\9;
+      }
+    }
+  }
+}
+@media screen and (min-width: 800px) {
+  .responsive-table .table{
+    td,th{
+      &.priority4{
+        display: table-cell;display: inline\9;
+      }
+    }
+  }
+}
+@media screen and (min-width: 960px) {
+  .responsive-table .table{
+    td,th{
+      &.priority5{
+        display: table-cell;display: inline\9;
+      }
+    }
+  }
+}
+@media screen and (min-width: 1120px) {
+  .responsive-table .table{
+    td,th{
+      &.priority6{
+        display: table-cell;display: inline\9;
+      }
+    }
+  }
+}

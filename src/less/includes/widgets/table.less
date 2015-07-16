@@ -1,0 +1,40 @@
+.table{
+  width:100%;
+  td,th{
+    border:1px solid #ddd;
+    padding:@paddingVerticalBase*1.5 @paddingHorizontalBase;
+    background-color: #fff;
+    &.striped{
+      background-color: #F2F6FA;
+    }
+  }
+  thead{
+    th{
+      vertical-align: bottom;white-space: nowrap;border-bottom-width:2px;
+    }
+  }
+  
+  &.table-striped{
+    tbody{
+      tr{
+        &:nth-child(odd)>td,
+        &:nth-child(odd)>th{
+          background-color: #F2F6FA;
+        }
+      }
+    }
+  }
+  &.table-nb{
+    td,th{
+      border:none;
+    }
+  }
+
+  &.table-vt{
+    td,th{
+      vertical-align: top;
+    }
+  }
+
+}
+

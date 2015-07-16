@@ -1,0 +1,19 @@
+
+/* ui-slider */
+.ui-sliderbox{
+  position: relative;overflow: hidden;
+}
+.ui-sliderbox-box{
+  position: absolute;left:0;top:0;width:2000px;
+}
+.ui-sliderbox-control{
+  position: absolute;bottom: 0;right: 0;color:red;padding: 4px;
+  
+  a{
+    display:inline-block;.size(12px);background:#fff;overflow: hidden;
+    text-indent: -999px;margin:0 3px;.opacity(0.6);*text-indent: 0;*line-height: 999px;
+    &.active{
+      .opacity(1);
+    }
+  }
+}

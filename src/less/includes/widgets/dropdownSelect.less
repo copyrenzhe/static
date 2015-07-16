@@ -1,0 +1,13 @@
+.ui-dropdown-select{
+  @contentHeight : @inputLineHeight;
+  @height : floor(@contentHeight+(@paddingVerticalBase+1)*2);
+  @arrowWidth : 4px;
+  display: inline-block;
+  height: @height;line-height: @contentHeight;
+  .ui-dropdown-select-name{
+    border:1px solid @borderColor;text-decoration: none;
+    display: block;position: relative;z-index: 2;
+    .border-radius(@borderRadiusBase);
+    height: @contentHeight;padding: @paddingVerticalBase @paddingHorizontalBase;
+  }
+}

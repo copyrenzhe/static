@@ -1,0 +1,87 @@
+.button-variant(@color; @background; @border) {
+  color: @color;
+  background-color: @background;
+  border-color: @border;
+
+  &:focus,
+  &.btn-state-focus {
+    color: @color;
+    background-color: darken(@background, 10%);
+        border-color: darken(@border, 25%);
+  }
+  &:hover {
+    color: @color;
+    background-color: darken(@background, 10%);
+        border-color: darken(@border, 12%);
+  }
+  &:active,
+  &.btn-state-active,
+  .open .ui-dropdown-toggle&{
+    color: @color;
+    background-color: darken(@background, 10%);
+        border-color: darken(@border, 12%);
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: @color;
+      background-color: darken(@background, 17%);
+          border-color: darken(@border, 25%);
+    }
+  }
+}
+
+// Button sizes
+.button-size(@padding-vertical; @padding-horizontal; @font-size; @line-height; @border-radius) {
+  padding: @padding-vertical @padding-horizontal;
+  font-size: @font-size;
+  line-height: @line-height;
+  border-radius: @border-radius;
+}
+
+
+.btn{
+  display: inline-block;
+  /* margin-bottom: 0; // For input.btn */
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid transparent;
+  white-space: nowrap;
+  text-decoration: none;
+  
+  /*states*/
+  .button-variant(#333; #fff; #ccc);
+  .button-size(@paddingVerticalBase;@paddingHorizontalBase*2;@fontSizeBase;@inputLineHeight;@borderRadiusBase);
+}
+a.btn{text-decoration: none;}
+
+/*colors*/
+.btn-blue{
+  .button-variant(#fff; #427fed; #427fed);
+}
+.btn-green{
+  .button-variant(#fff; #5cb85c; #4cae4c);
+}
+.btn-orange{
+  .button-variant(#fff; #f0ad4e; #eea236);
+}
+.btn-red{
+  .button-variant(#fff; #d9534f; #d43f3a);
+}
+.btn-gray{
+  .button-variant(#fff; #4c4c4c; #333);
+}
+
+/*size*/
+
+.btn-lg{
+  .button-size(floor(@paddingVerticalBase*2);floor(@paddingHorizontalBase*3);18px;@inputLineHeight;@borderRadiusBase*2;)
+}
+.btn-sm{
+  .button-size(floor(@paddingVerticalBase*0.6);floor(@paddingHorizontalBase*1.5);12px;@inputLineHeight;@borderRadiusBase;)
+}
+.btn-xs{
+  .button-size(floor(@paddingVerticalBase*0.4);floor(@paddingHorizontalBase*1);12px;@inputLineHeight*0.9;@borderRadiusBase;)
+}
