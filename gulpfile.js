@@ -8,7 +8,8 @@ var gulp        = require('gulp'),
     concat      = require('gulp-concat'),
     notify      = require('gulp-notify'),
     moment      = require('moment'),
-    _           = require('underscore');
+    _           = require('underscore'),
+    cssmin      = require('gulp-cssmin');
 
 var fs = require('fs');
 var src = './src',
@@ -33,12 +34,21 @@ var banner = ['/**',
                 ''
             ].join('\n');
 
+//编译less
 gulp.task('less',function(){
     return	gulp.src('src/less/*.less')
         		.pipe(less())
                 .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
                 .pipe(header(banner,{ pkg : pkg }))
         		.pipe(gulp.dest(src+'/css'));
+});
+
+//压缩css
+gulp.task('css',function(){
+    return gulp.src(src+'/css/**/*.css')
+                .pipe(cssmin())
+                .pipe(rename({suffix:'.min'}))
+                .pipe(gulp.dest(dist));
 });
 
 gulp.task('clean',function(){
