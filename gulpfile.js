@@ -1,14 +1,27 @@
 
-var gulp = require('gulp'),
-	less = require('gulp-less')
-    autoprefixer = require('gulp-autoprefixer');
-    header = require('gulp-header');
-    footer = require('gulp-footer')
-    clean = require('gulp-clean')
-    concat = require('gulp-concat');
+var gulp        = require('gulp'),
+	less        = require('gulp-less'),
+    autoprefixer= require('gulp-autoprefixer'),
+    header      = require('gulp-header'),
+    footer      = require('gulp-footer'),
+    clean       = require('gulp-clean'),
+    concat      = require('gulp-concat'),
+    notify      = require('gulp-notify'),
+    moment      = require('moment'),
+    _           = require('underscore');
 
+var fs = require('fs');
 var src = './src',
     dist = './dist';
+
+
+//
+var baseUrl = "localhost/static/dist/js";
+var version = "1.0";
+//
+var concatConfig    =   ["/js/lib","/js/model","/js/plugin"];
+var copyConfig      =   ["/fonts","thirdparty","/images"];
+var appConfig       =   [src+'/js/require.js',src+'/js/config.js'];
 
 var pkg = require('./package.json');
 var banner = ['/**',
@@ -34,10 +47,65 @@ gulp.task('clean',function(){
                 .pipe(clean());
 });
 
+gulp.task('script',function(){
+    var otherFiles  =   [src+'/js/**/*.js'];
+    appJsConfig.forEach(function(file){
+        otherFiles.push("!"+file);
+    });
+
+    gulp.src(appJsConfig)
+        .pipe(concat('app.js'))
+        .pipe(footer())
+})
+
 gulp.task('concat',function(){
     return  gulp.src(dist+'/css/*.css')
                 .pipe(concat('all.css'))
                 .pipe(gulp.dest(dist+'/css/'));
+});
+
+gulp.task('notify',function(){
+    return  gulp.src(dist+'/css/*.css')
+                .pipe(notify('Hello World!'));
 })
 
 gulp.task('default',['testLess','elseTask']);
+
+/**
+ * 自定义函数
+ */
+function getPath(pro){
+    var paths = JSON.parse(fs.readFileSync(src+'/js/path.json'));
+    if(!!pro){
+        paths = _.mapObject(paths,function(v,k){
+            var dir = v.match(/^.*(?=\/)/);
+            if(dir && concatConfig.indexOf('/js/'+dir[0]) != -1){
+                return dir[0];
+            }
+            return v;
+        });
+    }
+    return paths;
+}
+
+function initRequireConfig (opt) {
+    
+    opt = opt || {};
+    opt = _.extend({
+        pro: false,
+        waitSeconds: 10,
+        baseUrl: baseUrl,
+        version: version
+    },opt);
+    opt.paths = JSON.stringify(getPath(opt.pro),null,4).replace(/(\})$/,'   $1');
+
+    var _temp = _.template(['',
+        'require.config({',
+            '   baseUrl:  "<%= baseUrl %>",',
+            '   paths:  <%= paths %>,',
+            '   urlArgs:    "ygVersion=<%= version %>"<% if(!pro){ %>+"&data="+new Date().getTime()<% } %>,',
+            '   waitSeconds: <%= waitSeconds %>',
+        '})'
+        ].join('\n'));
+    return _temp(opt);
+}
