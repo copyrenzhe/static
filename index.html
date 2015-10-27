@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>前端通用组件库</title>
+  <link rel="stylesheet" href="/static/src/css/app.css">
+  <script src="/static/src/js/app.js"></script>
+  <!--[if lt IE 9]><script src="http://static.yaozh.com/js/special/html5shiv.js"></script><![endif]-->
+  <style>
+    .font-dialog{padding:0!important;}
+    .font-iframe{border:none;width:100%;height:96%;}
+    body h3{margin:30px 0 10px;}
+  </style>
+</head>
+<body class="m10">
+  <h1 class="tc">前端公用组件库</h1>
+  <div class="top-tabs">
+    <ul class="clearfix">
+      <li><a href="#top-tabs-1">通用</a></li>
+      <li><a href="#top-tabs-2">数据库</a></li>
+    </ul>
+    <div id="top-tabs-1">
+      <h2 class="mt20">通用模块</h2>
+      <div class="mt20 top-tabs">
+        <ul class="clearfix">
+          <li><a href="./demos/docs/icon.html">按钮</a></li>
+          <li><a href="./demos/docs/font.html">图标</a></li>
+          <li><a href="./demos/docs/form.html">表单</a></li>
+          <li><a href="./demos/docs/table.html">表格</a></li>
+          <li><a href="./demos/docs/dropdown.html">下拉</a></li>
+          <li><a href="./demos/docs/pagination.html">分页</a></li>
+          <li><a href="./demos/docs/dialog.html">弹窗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="top-tabs-2">
+      <h2 class="mt20">项目模块</h2>
+      <div class="mt20 top-tabs">
+      </div>
+    </div>
+  </div>
+  
+  
+  <script>
+    require(['jquery','jquery.ui'],function($){
+      //tab
+      $(".top-tabs").tabs();
+    });
+  </script>
+</body>
+</html>
