@@ -1,29 +1,54 @@
+//base paths
+var basePaths = {
+    src : 'src/',
+    dest : 'dist/'
+};
 
-var gulp        = require('gulp'),
-	less        = require('gulp-less'),
-    autoprefixer= require('gulp-autoprefixer'),
-    header      = require('gulp-header'),
-    footer      = require('gulp-footer'),
-    clean       = require('gulp-clean'),
-    concat      = require('gulp-concat'),
-    notify      = require('gulp-notify'),
-    moment      = require('moment'),
-    _           = require('underscore'),
-    cssmin      = require('gulp-cssmin');
+/**
+ * paths && constant
+ */
+var paths = {
+    images: {
+        src : basePaths.src + 'images/',
+        dest : basePaths.dest + 'images/min/'
+    },
+    scripts: {
+        src : basePaths.src + 'js/',
+        dest : basePaths.dest + 'js/min'
+    },
+    styles: {
+        src : basePaths.src + 'less/',
+        dest : basePaths.dest + 'css/min'
+    },
+    sprite: {
+        src : basePaths.src + 'sprite/*'
+    } 
+}
 
-var fs = require('fs');
-var src = './src',
-    dist = './dist';
+var appFiles = {
+    styles : [paths.styles.src + '**/*.less','!'+paths.styles.src+'includes/**/*'],
+    scripts : [paths.scripts.src+'require.js', paths.scripts.src+'config.js'],
+    concatScripts : ['lib','plugin'],
+}
 
+var devbaseUrl = "http://static.belusky.com/resource/src/js",
+    probaseUrl = "http://static.belusky.com/resource/src/js";
+var version    = "1.0";
 
-//
-var baseUrl = "localhost/static/dist/js";
-var version = "1.0";
-//
-var concatConfig    =   ["/js/lib","/js/model","/js/plugin"];
-var copyConfig      =   ["/fonts","thirdparty","/images"];
-var appConfig       =   [src+'/js/require.js',src+'/js/config.js'];
+/**
+ * gulp plugins
+ */
+var plugins     =   require('gulp-load-plugins')();    
+var gulp        =   require('gulp'),
+    moment      =   require('moment'),
+    _           =   require('underscore'),
+    gutil       =   require('gulp-util'),
+    sourcemaps  =   require('gulp-sourcemaps'),
+    fs          =   require('fs');
 
+/**
+ * package info
+ */
 var pkg = require('./package.json');
 var banner = ['/**',
             ' * <%= pkg.name %> - <%= pkg.description %>',
@@ -34,9 +59,17 @@ var banner = ['/**',
                 ''
             ].join('\n');
 
+/**
+ * args
+ * Allow gulp --dev to be run for more output
+ */
+var isProduction    =   true,
+    sourceMap       =   false,
+    header          =   false;
+
 //编译less
 gulp.task('less',function(){
-    return	gulp.src('src/less/*.less')
+    return	gulp.src('src/less/filter.less')
         		.pipe(less())
                 .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
                 .pipe(header(banner,{ pkg : pkg }))
