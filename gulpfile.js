@@ -69,38 +69,71 @@ var isProduction    =   true,
 
 //编译less
 gulp.task('less',function(){
-    return	gulp.src('src/less/filter.less')
-        		.pipe(less())
-                .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-                .pipe(header(banner,{ pkg : pkg }))
-        		.pipe(gulp.dest(src+'/css'));
-});
-
-//压缩css
-gulp.task('css',function(){
-    return gulp.src(src+'/css/**/*.css')
-                .pipe(cssmin())
-                .pipe(rename({suffix:'.min'}))
-                .pipe(gulp.dest(dist));
+    gutil.beep();
+    return  gulp.src(appFiles.styles)
+                .pipe(sourcemaps.init())
+                .pipe(plugins.less())
+                .pipe(plugins.autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+                .pipe(isProduction ? plugins.cssmin() : gutil.noop())
+                .pipe(isProduction ? plugins.rename({suffix:'.min'}) : gutil.noop())
+                .pipe(header ? plugins.header(banner,{ pkg : pkg }) : gutil.noop())
+                .pipe(sourceMap ? sourcemaps.write() : gutil.noop())
+                .pipe(gulp.dest(paths.styles.dest));
 });
 
 gulp.task('clean',function(){
     return  gulp.src(dist,{read:false})
-                .pipe(clean());
+                .pipe(plugins.clean());
 });
 
+//处理js的相关
 gulp.task('script',function(){
-    var otherFiles  =   [src+'/js/**/*.js'];
-    appJsConfig.forEach(function(file){
+    gutil.beep();
+    var otherFiles = [paths.scripts.src+'**/*.js'];
+    appFiles.scripts.forEach(function(file){
         otherFiles.push("!"+file);
+    })
+    //处理app.js
+    gulp.src(appFiles.scripts)
+        .pipe(sourcemaps.init())
+        .pipe(plugins.concat('app.js'))
+        .pipe(plugins.footer(initRequireConfig({pro:isProduction})))
+        .pipe(isProduction ? 
+                    (plugins.uglify().on('error', function(e) { console.log('\x07',e.message); return this.end(); }))
+                    :
+                    gutil.noop()
+                )
+        .pipe(header ? plugins.header(banner,{ pkg : pkg }) : gutil.noop())
+        .pipe(sourceMap ? sourcemaps.write() : gutil.noop())
+        .pipe(gulp.dest(paths.scripts.dest));
+
+    //处理合并
+    appFiles.concatScripts.forEach(function(file){
+        var files = paths.scripts.src + file + '/*.js';
+        otherFiles.push("!"+files);
+
+        gulp.src(files)
+            .pipe(sourcemaps.init())
+            .pipe(isProduction ? 
+                    (plugins.uglify().on('error', function(e) { console.log('\x07',e.message); return this.end(); }))
+                    :
+                    gutil.noop()
+                )
+            .pipe(plugins.concat(file+'.js'))
+            .pipe(header ? plugins.header(banner,{ pkg : pkg }) : gutil.noop())
+            .pipe(sourceMap ? sourcemaps.write() : gutil.noop())
+            .pipe(gulp.dest(paths.scripts.dest));
     });
 
-    gulp.src(appJsConfig)
-        .pipe(concat('app.js'))
-        .pipe(footer(initRequireConfig({pro:true})))
-        .pipe(uglity())
-        .pipe(header(banner,{pkg:pkg}))
-        .pipe(gulp.dest(dist));
+    //处理其他脚本
+    gulp.src(otherFiles)
+        .pipe(isProduction ? 
+                    (plugins.uglify().on('error', function(e) { console.log('\x07',e.message); return this.end(); }))
+                    :
+                    gutil.noop()
+            )
+        .pipe(header ? plugins.header(banner, { pkg : pkg }) : gutil.noop())
+        .pipe(gulp.dest(paths.scripts.dest));
 })
 
 gulp.task('concat',function(){
