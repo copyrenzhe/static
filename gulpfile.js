@@ -81,11 +81,6 @@ gulp.task('less',function(){
                 .pipe(gulp.dest(paths.styles.dest));
 });
 
-gulp.task('clean',function(){
-    return  gulp.src(dist,{read:false})
-                .pipe(plugins.clean());
-});
-
 //处理js的相关
 gulp.task('script',function(){
     gutil.beep();
@@ -136,18 +131,13 @@ gulp.task('script',function(){
         .pipe(gulp.dest(paths.scripts.dest));
 })
 
-gulp.task('concat',function(){
-    return  gulp.src(dist+'/css/*.css')
-                .pipe(concat('all.css'))
-                .pipe(gulp.dest(dist+'/css/'));
+
+gulp.task('clean',function(){
+    return  gulp.src(dist,{read:false})
+                .pipe(plugins.clean());
 });
 
-gulp.task('notify',function(){
-    return  gulp.src(dist+'/css/*.css')
-                .pipe(notify('Hello World!'));
-})
-
-gulp.task('default',['testLess','elseTask']);
+gulp.task('default',['less','script']);
 
 /**
  * 自定义函数
