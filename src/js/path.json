@@ -13,5 +13,5 @@
   "jquery.dropdown": "plugin/dropdown",
 
   "jquery.ui": "other/jquery-ui",
-  "pace": "other/pace",
+  "pace": "other/pace"
 }

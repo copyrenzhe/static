@@ -68,9 +68,9 @@ var isProduction    =   true,
     header          =   false;
     
 //if is dev mode
-if(gulp.env.dev === true) {
+if(gutil.env.dev === true) {
     isProduction    =   false;
-    sourcemaps      =   true;
+    sourceMap       =   true;
     header          =   true;
 }
 
@@ -152,10 +152,11 @@ gulp.task('default',['less','script']);
  */
 
 //获取path.json的路径
+//注意path.json最后一项不能有分号，否则 JSON.parse方法会报错' Unexpected token } '
 function getPath(pro){
-    var paths = JSON.parse(fs.readFileSync(paths.scripts.src+'path.json'));
+    var fpaths = JSON.parse(fs.readFileSync(paths.scripts.src+'path.json'));
     if(!!pro){
-        paths = _.mapObject(paths,function(v,k){
+        fpaths = _.mapObject(fpaths,function(v,k){
             var dir = v.match(/^.*(?=\/)/);
             if(dir && concatConfig.indexOf('/js/'+dir[0]) != -1){
                 return dir[0];
@@ -163,7 +164,7 @@ function getPath(pro){
             return v;
         });
     }
-    return paths;
+    return fpaths;
 }
 
 //初始化requireJs的config文件

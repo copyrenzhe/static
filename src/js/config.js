@@ -16,9 +16,6 @@ require.config({
     }
   },
   shim : {
-    "prism": {
-      deps : ['css!../css/plugin/prism-twilight']
-    },
     "jquery.ui": {
       deps : ['css!../css/jquery-ui']
     }
