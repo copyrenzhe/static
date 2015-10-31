@@ -3,6 +3,7 @@
 
   "browser": "lib/browser",
   "jquery": "lib/jquery",
+  "modernizr": "lib/modernizr",
   "underscore": "lib/underscore",
   "require.css": "lib/require-css-plugin",
 

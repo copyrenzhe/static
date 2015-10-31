@@ -14,25 +14,28 @@ var paths = {
     },
     scripts: {
         src : basePaths.src + 'js/',
-        dest : basePaths.dest + 'js/min/'
+        dest : basePaths.dest + 'js/'
     },
     styles: {
-        src : basePaths.src + 'less/',
-        dest : basePaths.dest + 'css/min/'
+        src : basePaths.src + 'css/',
+        dest : basePaths.dest + 'css/'
     },
     sprite: {
         src : basePaths.src + 'sprite/*'
+    },
+    less : {
+        src : basePaths.src + 'less/'
     } 
 }
 
 var appFiles = {
-    styles : [paths.styles.src + '**/*.less','!'+paths.styles.src+'includes/**/*'],
+    styles : [paths.less.src + '**/*.less','!'+paths.less.src+'includes/**/*'],
     scripts : [paths.scripts.src+'require.js', paths.scripts.src+'config.js'],
     concatScripts : ['lib','plugin'],
 }
 
-var devbaseUrl = "http://static.dev/resource/src/js",
-    probaseUrl = "http://static.vwoke.com/resource/src/js";
+var devbaseUrl = "http://static.dev/src/js",
+    probaseUrl = "http://static.vwoke.com/dist/js";
 var version    = "1.0";
 
 /**
@@ -86,7 +89,11 @@ gulp.task('less',function(){
                 .pipe(isProduction ? plugins.rename({suffix:'.min'}) : gutil.noop())
                 .pipe(header ? plugins.header(banner,{ pkg : pkg }) : gutil.noop())
                 .pipe(sourceMap ? sourcemaps.write() : gutil.noop())
-                .pipe(gulp.dest(paths.styles.dest));
+                .pipe(isProduction ? 
+                            gulp.dest(paths.styles.dest)
+                            :
+                            gulp.dest(paths.styles.src)
+                    );
 });
 
 //处理js的相关
@@ -108,7 +115,11 @@ gulp.task('script',function(){
                 )
         .pipe(header ? plugins.header(banner,{ pkg : pkg }) : gutil.noop())
         .pipe(sourceMap ? sourcemaps.write() : gutil.noop())
-        .pipe(gulp.dest(paths.scripts.dest));
+        .pipe(isProduction ?
+                    gulp.dest(paths.scripts.dest)
+                    :
+                    gulp.dest(paths.scripts.src)
+            );
 
     //处理合并
     appFiles.concatScripts.forEach(function(file){
