@@ -14,11 +14,11 @@ var paths = {
     },
     scripts: {
         src : basePaths.src + 'js/',
-        dest : basePaths.dest + 'js/min'
+        dest : basePaths.dest + 'js/min/'
     },
     styles: {
         src : basePaths.src + 'less/',
-        dest : basePaths.dest + 'css/min'
+        dest : basePaths.dest + 'css/min/'
     },
     sprite: {
         src : basePaths.src + 'sprite/*'
@@ -31,8 +31,8 @@ var appFiles = {
     concatScripts : ['lib','plugin'],
 }
 
-var devbaseUrl = "http://static.belusky.com/resource/src/js",
-    probaseUrl = "http://static.belusky.com/resource/src/js";
+var devbaseUrl = "http://static.dev/resource/src/js",
+    probaseUrl = "http://static.vwoke.com/resource/src/js";
 var version    = "1.0";
 
 /**
@@ -66,6 +66,14 @@ var banner = ['/**',
 var isProduction    =   true,
     sourceMap       =   false,
     header          =   false;
+    
+//if is dev mode
+if(gulp.env.dev === true) {
+    isProduction    =   false;
+    sourcemaps      =   true;
+    header          =   true;
+}
+
 
 //编译less
 gulp.task('less',function(){
@@ -142,8 +150,10 @@ gulp.task('default',['less','script']);
 /**
  * 自定义函数
  */
+
+//获取path.json的路径
 function getPath(pro){
-    var paths = JSON.parse(fs.readFileSync(src+'/js/path.json'));
+    var paths = JSON.parse(fs.readFileSync(paths.scripts.src+'path.json'));
     if(!!pro){
         paths = _.mapObject(paths,function(v,k){
             var dir = v.match(/^.*(?=\/)/);
@@ -156,9 +166,12 @@ function getPath(pro){
     return paths;
 }
 
+//初始化requireJs的config文件
 function initRequireConfig (opt) {
     
     opt = opt || {};
+    var baseUrl = devbaseUrl;
+    if(opt.pro) baseUrl = probaseUrl;
     opt = _.extend({
         pro: false,
         waitSeconds: 10,

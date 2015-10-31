@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>分页</title>
+  <link rel="stylesheet" href="/static/src/css/db.css">
+  <link rel="stylesheet" href="/static/src/css/app.css">
+  <script src="/static/src/js/app.js"></script>
+  <!--[if lt IE 9]><script src="http://static.yaozh.com/js/special/html5shiv.js"></script><![endif]-->
+</head>
+<body>
+  <h3>默认</h3>
+  <div class="mt10" id="paging"></div>
+  <pre>
+    <code class="language-javascript">
+$("#paging").pagination({
+  currentPage: 1,
+  total:470,
+});
+    </code>
+  </pre>
+    <div class="mt10" id="paging11" data-page="3" data-total="470" data-size="20"></div>
+  <pre>
+    <code class="language-javascript">
+$("#paging11").pagination();
+    </code>
+  </pre>
+
+  <h3>设置边缘</h3>
+  <div class="mt10" id="paging2"></div>
+  <pre>
+    <code class="language-javascript">
+$("#paging2").pagination({
+  currentPage: 1,
+  total:470,
+  edges:0,
+  displayEdges:0
+});
+    </code>
+  </pre>
+  <div class="mt10" id="paging3"></div>
+  <pre>
+  <code class="language-javascript">
+$("#paging3").pagination({
+  currentPage: 1,
+  total:470,
+  edges:2,
+  displayEdges:0
+});
+  </code>
+  </pre>
+  <h3>设置显示个数</h3>
+  <div class="mt10" id="paging4"></div>
+  <pre>
+    <code class="language-javascript">
+$("#paging4").pagination({
+  currentPage: 1,
+  total:470,
+  edges:0,
+  displayEdges:2
+});
+    </code>
+  </pre>
+  <div class="mt10" id="paging5"></div>
+  <pre>
+    <code class="language-javascript">
+$("#paging5").pagination({
+  currentPage: 1,
+  total:470,
+  edges:0,
+  displayEdges:3
+});
+    </code>
+  </pre>
+  <h3>显示总条数</h3>
+  <div class="mt10" id="paging6"></div>
+  <pre>
+    <code class="language-javascript">
+$("#paging6").pagination({
+  currentPage: 1,
+  total:470,
+  showTotal:true
+});
+    </code>
+  </pre>
+  <h3>允许跳转</h3>
+  <div class="mt10" id="paging7"></div>
+  <pre>
+    <code class="language-javascript">
+$("#paging7").pagination({
+  currentPage: 1,
+  total:470,
+  skipPage:true
+});
+    </code>
+  </pre>
+  <h3>允许选择页大小</h3>
+  <div class="mt10" id="paging8"></div>
+  <pre>
+    <code class="language-javascript">
+$("#paging8").pagination({
+  currentPage: 1,
+  total:470,
+  pageSizeSelect:true,
+  showTotal:true
+});
+    </code>
+  </pre>
+  <h3>pageChange事件</h3>
+  <div class="mt10" id="paging9"></div>
+  <pre>
+    <code class="language-javascript">
+$("#paging9").pagination({
+  currentPage: 1,
+  total:470
+}).on('pageChange',function(e){
+  $("#console").append('pageChange:page='+e.page);
+});
+    </code>
+  </pre>
+  <div id="console"></div>
+  <script>
+    require(['browser','jquery','jquery.pagination'],function(browser,$){
+      if(browser>8){
+        require(['prism'],function(){
+          Prism.highlightAll();
+        });
+      }
+      $('pre').each(function(){
+        var $this = $(this);
+        eval($this.text());
+      });
+    });
+  </script>
+</body>

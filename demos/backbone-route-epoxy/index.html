@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>route and epoxy</title>
+  <script type="text/javascript" src="/static/src/js/app.js"></script>
+</head>
+<body>
+  <h1>route and epoxy</h1>
+  <p>demo:</p>
+  <div id="demo">
+    <div id="app-luke" class="demo">
+      <label>First:</label>
+      <input name="first-name" type="text" class="first-name" data-bind="value:firstName,events:['keyup'],placeholder:'zzz'">
+      <label>Last:</label>
+      <input name="last-name" type="text" class="last-name" data-bind="value:lastName,events:['keyup']">
+      <p>
+        <label>fontSize Test:</label>
+        <input name="font-size" type="text" class="font-size" data-bind="value:fontSize,events:['keyup']">
+        <label data-bind="css:{'font-size':integer(fontSize)},attr:{'data-size':fontSize}">Email:</label>
+        <input name="email" type="text" class="email" data-bind="value:email,events:['keyup']">
+        <span data-bind="toggle:isEmail(email)">请输入正确的邮箱</span>
+      </p>
+      
+      <p>
+        <label>爱好:</label>
+        <label><input type="checkbox" value="0" name="love" data-bind="checked:love"> 游戏</label>
+        <label><input type="checkbox" value="1" name="love" data-bind="checked:love"> 泡妞</label>
+        <label><input type="checkbox" value="2" name="love" data-bind="checked:love"> 打架</label>
+        <label><input type="checkbox" value="3" name="love" data-bind="checked:love"> 非主流</label>
+      </p>
+      <p>
+        <label>性别:</label>
+        <label><input type="radio" value="0" name="sex" data-bind="checked:sex"> 男</label>
+        <label><input type="radio" value="1" name="sex" data-bind="checked:sex"> 女</label>
+      </p>
+      <p>
+        <label>生日:</label>
+        <select name="year" data-bind="value:integer(year),options:yearList"></select>
+        <select name="month" data-bind="value:integer(month),options:monthList"></select>
+        <select name="day" data-bind="value:integer(day),options:dayList"></select>
+      </p>
+      <h3>结果：</h3>
+      <p>爱好: <span data-bind="listLoves:love"></span></p>
+      <p>性别: <span data-bind="text:sex"></span></p>
+      <b>Full Name:</b>
+      <span class="full-name" data-bind="text:fullName"></span>
+      <p>
+        <b>template:</b>
+        <div data-bind="template:$model">
+          <script type="text/tmpl">
+            <table>
+              <tbody>
+                <% _.each(_.range(10),function(){ %>
+                <tr>
+                  <td><%= firstName %></td>
+                  <td><%= lastName %></td>
+                </tr>
+                <% }); %>
+              </tbody>
+            </table>
+          </script>
+        </div>
+      </p>
+    </div>
+  </div>
+  <div class="control">
+    <input id="toggle" type="button" value="切换">
+  </div>
+  <p>dataList:</p>
+  <div id="data-table">
+    <table class="table" style="width:100%">
+      <thead>
+        <tr data-bind="collection:$head,itemView:'headView'"></tr>
+      </thead>
+      <tbody data-bind="collection:$collection"></tbody>
+    </table>
+  </div>
+  <script src="/static/demos/backbone-route-epoxy/js/index.js"></script>
+</body>
+</html>

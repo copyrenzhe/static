@@ -1,0 +1,264 @@
+/*********************************以下内容参看 bootstrap mixins.less************************************/
+body{
+  font-family: Arial, SimSun;margin:0;
+}
+.ui-yellow {
+  color: #f0a525;
+}
+.banner {
+  height: 600px;
+  background-color: #d6222e;
+  position: relative;
+  overflow: hidden;
+}
+.loading {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 100%;
+  background-color: #d6222e;
+  z-index: 10;
+}
+.loading .progress {
+  width: 220px;
+  height: 220px;
+  line-height: 220px;
+  visibility: hidden;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -110px;
+  margin-left: -110px;
+  font-size: 26px;
+  font-weight: 700;
+  font-family: Georgia, serif;
+  color: #fff;
+  text-align: center;
+  text-shadow: 1px 1px 1px #000;
+}
+.stage {
+  height: 700px;
+  width: 1300px;
+  position: absolute;
+  left: 50%;
+  margin-left: -650px;
+  bottom: -50px;
+  z-index: 1;
+  background-color: #202020;
+}
+.stage .thing {
+  position: absolute;
+}
+.stage .thing.hole {
+  width: 1300px;
+  height: 700px;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+}
+.stage .thing.text1 {
+  width: 828px;
+  height: 272px;
+  left: 202px;
+  bottom: 332px;
+  z-index: 4;
+}
+.stage .thing.text2_1 {
+  width: 700px;
+  height: 132px;
+  left: 150px;
+  bottom: 246px;
+  z-index: 4;
+}
+.stage .thing.text2_2 {
+  width: 644px;
+  height: 198px;
+  left: 294px;
+  bottom: 102px;
+  z-index: 4;
+}
+.stage .rocket {
+  position: absolute;
+  width: 452px;
+  height: 168px;
+  left: 758px;
+  bottom: 272px;
+  z-index: 6;
+}
+.stage .rocket .rocket_1 {
+  left: 157px;
+  top: 0;
+  z-index: 2;
+}
+.stage .rocket .rocket_2 {
+  left: 0;
+  top: 35px;
+  z-index: 1;
+}
+.stage .goods {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: 0;
+  z-index: 4;
+}
+.stage .goods .good {
+  background-repeat: no-repeat;
+  background-color: transparent;
+  width: 100px;
+  height: 100px;
+}
+.stage .goods .good.good1 {
+  background-position: 0px 0px;
+  left: 1100px;
+  bottom: 550px;
+}
+.stage .goods .good.good2 {
+  background-position: 0px -100px;
+  left: 130px;
+  bottom: 480px;
+}
+.stage .goods .good.good3 {
+  background-position: 0px -200px;
+  left: 560px;
+  bottom: 540px;
+}
+.stage .goods .good.good4 {
+  background-position: 0px -300px;
+  left: 760px;
+  bottom: 574px;
+}
+.stage .goods .good.good5 {
+  background-position: 0px -400px;
+  left: 80px;
+  bottom: 340px;
+}
+.stage .goods .good.good6 {
+  background-position: 0px -500px;
+  left: 40px;
+  bottom: 110px;
+}
+.stage .goods .good.good7 {
+  background-position: 0px -600px;
+  left: 260px;
+  bottom: 250px;
+}
+.stage .goods .good.good8 {
+  background-position: 0px -700px;
+  left: 1100px;
+  bottom: 100px;
+}
+.stage .stones {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: 28px 0 0 -20px;
+  z-index: 3;
+}
+.stage .stones .stone {
+  width: 50px;
+  height: 50px;
+}
+.action-bar {
+  position: absolute;
+  z-index: 2;
+  bottom: -34px;
+  left: 50%;
+  margin-left: -150px;
+  width: 300px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #000;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  -webkit-transition: bottom 0.2s;
+  -moz-transition: bottom 0.2s;
+  transition: bottom 0.2s;
+}
+.action-bar:hover {
+  bottom: 0;
+}
+.action-bar .button {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  color: #fff;
+  margin: 0 5px;
+  text-decoration: none;
+}
+.action-bar .button:hover {
+  color: #2FEEFD;
+}
+.action-bar .button.speed {
+  width: auto;
+}
+.action-bar .button.speed .num {
+  font-size: 24px;
+  vertical-align: top;
+  margin-left: 2px;
+}
+.bg {
+  background-repeat: no-repeat;
+  background-color: #f4f4f4;
+  background-position: center top;
+  overflow: hidden;
+  position: relative;
+}
+.bg.bg1 {
+  height: 552px;
+  margin-top: -552px;
+  z-index: 2;
+}
+.bg.bg1 .content1 {
+  position: absolute;
+  top: 300px;
+  left: 50%;
+  margin-left: 12px;
+  height: 40px;
+}
+.bg.bg1 .btn1 {
+  position: absolute;
+  width: 110px;
+  height: 26px;
+  left: 50%;
+  top: 482px;
+  margin-left: -488px;
+}
+.bg.bg1 .btn1:hover {
+  border-bottom: 2px solid #dd2317;
+}
+.bg.bg2 {
+  height: 748px;
+  margin-top: -748px;
+  z-index: 1;
+}
+.bg.bg2 .input1 {
+  width: 330px;
+  height: 40px;
+  line-height: 40px;
+  border: none;
+  position: absolute;
+  left: 50%;
+  top: 160px;
+  margin-left: 50px;
+  font-size: 24px;
+}
+.bg.bg2 .btn1 {
+  width: 102px;
+  height: 60px;
+  position: absolute;
+  left: 50%;
+  top: 151px;
+  margin-left: 388px;
+}
+.bg.bg2 .btn1:hover {
+  background-color: #fff;
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+}

@@ -1,0 +1,50 @@
+<div class="btn-group dropdown">
+  <button class="btn dropdown-toggle" data-toggle="dropdown">按钮下拉</button>
+  <ul class="dropdown-menu">
+    <li>
+      <label><input type="checkbox" name="column" value="0">Company</label>
+    </li>
+    <li>
+      <label><input type="checkbox" name="column" value="1">Last Trade</label>
+    </li>
+    <li>
+      <label><input type="checkbox" name="column" value="2">Trade Time</label>
+    </li>
+    <li>
+      <label><input type="checkbox" name="column" value="3">Change</label>
+    </li>
+    <li>
+      <label><input type="checkbox" name="column" value="4">Prev Close</label>
+    </li>
+    <li>
+      <label><input type="checkbox" name="column" value="5">Open</label>
+    </li>
+    <li>
+      <label><input type="checkbox" name="column" value="6">Bid</label>
+    </li>
+    <li>
+      <label><input type="checkbox" name="column" value="7">Ask</label>
+    </li>
+    <li>
+      <label><input type="checkbox" name="column" value="8">1y Target Est</label>
+    </li>
+    <li>
+      <label><input type="checkbox" name="column" value="9">Lorem</label>
+    </li>
+    <li>
+      <label><input type="checkbox" name="column" value="10">Ipsum</label>
+    </li>
+  </ul>
+</div>
+<div class="btn-group dropdown">
+  <a class="" href="javascript:;" data-toggle="dropdown">链接下拉</a>
+  <div class="dropdown-menu">
+    <p class="p10">随便弹点啥子东西都可以。</p>
+  </div>
+</div>
+
+<script>
+  require(['jquery','jquery.dropdown'],function($){
+    $('.dropdown:eq(1) a').dropdown();
+  });
+</script>

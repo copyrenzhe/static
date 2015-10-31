@@ -1,0 +1,50 @@
+
+/* CSS Document */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, blockquote, textarea, p, th, td ,table {margin:0;padding:0;}
+body, input, select, button, textarea { font-size: 12px; font-family: Tahoma, Geneva, sans-serif;}
+table {border-collapse:collapse;}
+button { cursor: pointer;}
+fieldset{border:0;}
+img{vertical-align:top; border:0 none;}
+address, caption, cite, code, dfn, em, th, var {font-style:normal;font-weight:normal;}
+ol,ul,li{list-style:none; }
+caption, th {text-align:left;}
+h1, h2, h3, h4, h5, h6 {font-size:100%;font-weight:normal;}
+p{text-align:left;}
+i,cite,em{font-style:normal;font-weight:normal;}
+abbr, acronym {border:0;}
+a {text-decoration:none; color:#4c4c4c;}
+body { font-size:12px; background:#fff;} 
+q:before,q:after {content:'';} 
+a:active {outline: none;star:expression_r(this.onFocus=this.blur());}
+outline:none; 
+area {blr:expression(this.onFocus=this.blur()); } 
+a:focus{-moz-outline-style: none;}
+a:hover{ color:#990000; text-decoration:underline;}
+html{overflow:-moz-scrollbars-vertical;height:100%;}
+body{height:100%;}
+
+.subject{ background:url(../images/bj.gif); font-family:"microsoft yahei";}
+.top{ background:#fff; height:50px; overflow:hidden; margin:0 auto}
+.top .top-w{ width:1000px; margin:0 auto; line-height:50px;}
+.top .top-logo{ background:url(../images/shop_logo.png) no-repeat;  width:180px; height:28px; float:left; display:inline-block; margin-top:10px}
+.top .nav{ float:right; }
+.top .nav a{ color:#7c7c7c;}
+.top .nav a:hover{ color:#e74c3c;}
+.top .nav ul li{ float:left; padding:0 10px; font-size:14px;}
+.overall{position: absolute;width: 100%;height: 100%;}
+.error{color:#fff;z-index:99;width: 960px;height: 600px;position: relative;left: 50%;top: 50%;margin-left: -480px;margin-top: -300px;}
+.error .error-w{ position:absolute; top:0; left:235px;text-align:center; width:470px;}
+.error .er{ background:url(../images/error404.png) no-repeat;width:470px; height:130px;}
+.error .ea { font-size:45px; text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.7) ; font-weight:500; letter-spacing:5px; padding-top:5px;}
+.error .em{ font-size:18px; text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.7) ; letter-spacing:2px; padding:20px;}
+.error .eb-bton{ width:147px; height:49px; background:url(../images/btn.png) 0 0 no-repeat; display:block; margin:0 auto; margin-top:10px;}
+.error .eb-bton:hover{ background:url(../images/btn.png) 0 -51px no-repeat; _background-position:0 -50px }
+
+.foot{ position:absolute; bottom:0px; overflow:hidden; width:100%; height:300px;}
+.foot-w{position:absolute;left:50%;width:2048px;height:150px;margin-left: -1024px;bottom:0;}
+.foot .ft{ position:absolute;}
+.foot .ft1{ z-index:1;top:0;left:0;}
+.foot .ft2{ z-index:2;top:0;left:0;}
+.foot .ft3{ z-index:3;top:0;left:0;}
+.foot .ft4{ z-index:4;top:0;left:0;}

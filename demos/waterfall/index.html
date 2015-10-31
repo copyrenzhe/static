@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>waterfall-demo</title>
+  <style>
+    .action{position: fixed;bottom:0;right:0;padding:6px;width:100%;text-align: right;
+      z-index:2;box-sizing:border-box;background-color: #fff;
+    }
+    .list{margin-top: 10px;}
+    .list .li{width:200px;margin:0 10px 10px 0;}
+  </style>
+</head>
+<body>
+  <h1>waterfall</h1>
+  <p>source:</p>
+  <pre class="language-html" data-src="./index.html"></pre>
+  <pre class="language-javascript" data-src="./js/index.js"></pre>
+  <p>demo:</p>
+  <div class="action">
+    <button class="add-one">添加一个</button>
+    <button class="add-more">添加多个</button>
+    <button class="refresh">重绘</button>
+  </div>
+  <div class="list"></div>
+  <script type="text/javascript" src="../../src/js/app.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>focusInput</title>
+  <style>
+    :focus{outline: none;}
+    input{border:1px solid #000;padding:2px;height: 24px;}
+    input:focus{border-color:red;}
+  </style>
+  <script src="../../src/js/app.js"></script>
+</head>
+<body>
+  <p><label>用户：</label><input type="text"></p>
+  <p><label>密码：</label><input type="password"></p>
+  <p><label>邮箱：</label><input type="text" style="height:14px;"></p>
+  <p><label>qq：</label><input type="text" style="height:30px;"></p>
+  <p><label>生日：</label><input type="text"></p>
+  <p><label>住址：</label><input type="text"></p>
+  <script>
+    require(['jquery.focusInput'],function($){
+      $.focusInput();
+    });
+  </script>
+</body>
+</html>
