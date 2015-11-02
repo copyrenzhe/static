@@ -12,7 +12,9 @@
   "jquery.validate": "plugin/jquery.validate",
   "jquery.focusInput": "plugin/focusInput",
   "jquery.dropdown": "plugin/dropdown",
+  "jquery.pagination": "plugin/pagination",
 
   "jquery.ui": "other/jquery-ui",
-  "pace": "other/pace"
+  "pace": "other/pace",
+  "prism": "other/prism"
 }
