@@ -16,5 +16,7 @@
 
   "jquery.ui": "other/jquery-ui",
   "pace": "other/pace",
-  "prism": "other/prism"
+  "prism": "other/prism",
+
+  "rightTips": "other/right"
 }
