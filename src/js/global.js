@@ -12,6 +12,7 @@ require(['browser'],function(browser){
     //开启input focus追踪
     require(['jquery.focusInput'],function($){$.focusInput();});
   }
+  require(['rightTips'],function(rightTips){rightTips.run();})
 });
 
 require(['jquery','browser','modernizr'],function($,browser,modernizr){
