@@ -100,7 +100,7 @@ gulp.task('less',function(){
 //处理js的相关
 gulp.task('script',function(){
     gutil.beep();
-    del([paths.scripts.dest+'app.js',paths.scripts.src+'app.js']);
+    del([paths.scripts.dest+'app.min.js',paths.scripts.src+'app.js']);
     var otherFiles = [paths.scripts.src+'**/*.js'];
     appFiles.scripts.forEach(function(file){
         otherFiles.push("!"+file);

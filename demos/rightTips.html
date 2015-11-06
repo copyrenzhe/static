@@ -6,6 +6,43 @@
   <link rel="stylesheet" href="/src/css/app.css">
   <script src="/src/js/app.js"></script>
   <!--[if lt IE 9]><script src="http://static.yaozh.com/js/special/html5shiv.js"></script><![endif]-->
+  <style>
+  /*通用侧边栏分享*/
+#appgame-leftside-share{width:44px; height:302px; position:fixed; left:50%; margin-left:-664px; top:50%; margin-top:-151px; z-index:9999; display:none;}
+.appgame-leftside-share{width:44px; height:259px;}
+#appgame-leftside-share a{display:block; width:44px; height:44px; background-color:#fff; z-index:1; position:absolute; left:0; box-sizing:border-box; -moz-box-sizing:border-box; border:1px #cccccc solid; background-image:url(http://www.appgame.com/wp-content/themes/v6/images/appgame-share.png); background-repeat:no-repeat; margin:0;  transition:0.4s; -webkit-transition:0.4s; -moz-transition:0.4s;}
+#appgame-leftside-share a:hover{background-color:#bf1313; border:1px #bf1313 solid; z-index:2;}
+.appgame-leftside-weixin{top:0; background-position:-88px 0;}
+.appgame-leftside-weixin:hover{background-position:-44px 0;}
+.appgame-leftside-qzone{top:43px; background-position:-88px -44px;}
+.appgame-leftside-qzone:hover{background-position:-44px -44px;}
+.appgame-leftside-sqq{top:86px; background-position:-88px -88px;}
+.appgame-leftside-sqq:hover{background-position:-44px -88px;}
+.appgame-leftside-tsina{top:129px; background-position:-88px -132px;}
+.appgame-leftside-tsina:hover{background-position:-44px -132px;}
+.appgame-leftside-fbook{top:172px; background-position:-88px -176px;}
+.appgame-leftside-fbook:hover{background-position:-44px -176px;}
+.appgame-leftside-twi{top:215px; background-position:-88px -220px;}
+.appgame-leftside-twi:hover{background-position:-44px -220px;}
+#appgame-leftside-share .appgame-leftside-top{background-image:url(http://www.appgame.com/wp-content/themes/v6/images/leftNav-off.png); background-position:-1px -395px; top:258px; cursor:pointer;}
+#appgame-leftside-share .appgame-leftside-top:hover{background-image:url(http://www.appgame.com/wp-content/themes/v6/images/leftNav-on.png); background-color:#bf1313; border:1px #bf1313 solid;}
+@media screen and (max-width:1360px){
+  #appgame-leftside-share{left:auto; margin:0; right:0; top:auto; bottom:0; width:302px; height:44px;}
+  .appgame-leftside-share{width:302px; height:44px;}
+  #appgame-leftside-share a{top:0;}
+  #appgame-leftside-share .appgame-leftside-top{left:258px; top:0;}
+  #appgame-leftside-share .appgame-leftside-weixin{left:215px;}
+  #appgame-leftside-share .appgame-leftside-qzone{left:172px;}
+  #appgame-leftside-share .appgame-leftside-sqq{left:129px;}
+  #appgame-leftside-share .appgame-leftside-tsina{left:86px;}
+  #appgame-leftside-share .appgame-leftside-fbook{left:43px;}
+  #appgame-leftside-share .appgame-leftside-twi{left:0;}
+  }
+@media screen and (max-width:540px){
+  #appgame-leftside-share{display:none;}
+  }
+
+  </style>
 </head>
 <body>
   <h3>右边提示栏</h3>
@@ -31,6 +68,76 @@
             <div class="tipsText">返回顶部</div>
         </a>
     </div>
+    <div id="appgame-leftside-share" style="display: block;">
+      <div class="appgame-leftside-share rwt_share" id="rwt_share">
+        <style type="text/css">.rwt_share{overflow:hidden;float:left;position:relative;}.rwt_share a{display:inline-block; margin-right:10px;text-indent:-9999px;margin-bottom:10px;width:24px;height:24px;overflow:hidden;background-image:url(http://act.appgame.com/wp-content/themes/v6-act/libs/images/share_icons_24.png);background-repeat:no-repeat;cursor:pointer;float:left;font-size:12px;}.rwts_weixin{background-position:0 -1612px;}.rwts_tsina{background-position:0 -104px;}.rwts_tqq{background-position:0 -260px;}.rwts_qzone{background-position:0 -52px;}.rwts_sqq{background-position:0 -2652px;}.rwts_tieba{background-position:0 -728px;}.rwts_renren{background-position:0 -208px;}.rwts_kaixin001{background-position:0 -312px;}.rwts_tqf{background-position:0 -364px;}.rwts_douban{background-position:0 -468px;}.rwts_twi{background-position:0 -1404px;}.rwts_fbook{background-position:0 -1352px;}.rwts_ty{background-position:0 -1196px;}.rwts_mogujie{background-position:0 -1768px;}.rwts_meilishuo{background-position:0 -1716px;}.rwts_huaban{background-position:0 -1872px;}.rwts_hi{background-position:0 -416px;}.rwts_tsohu{background-position:0 -520px;}.rwts_more{background-position:0 0;}</style><a class="appgame-leftside-weixin" data-cmd="weixin" title="分享到微信">微信</a>
+        <a class="appgame-leftside-qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+        <a class="appgame-leftside-sqq" data-cmd="sqq" title="分享到QQ好友">QQ好友</a>
+        <a class="appgame-leftside-tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+        <a class="appgame-leftside-fbook" data-cmd="fbook" title="分享到Facebook">Facebook</a>
+        <a class="appgame-leftside-twi" data-cmd="twi" title="分享到Twitter">Twitter</a>
+      </div>
+      
+      <a class="appgame-leftside-top" onclick="gotoTPoint('top',400)"></a>
+    </div>
   </div>
+  <script>
+require(['jquery'],function($){
+/*左侧滚动导航*/
+function gotoTPoint(obj, speed) {
+    var objTop;
+    var objId = '#' + obj;
+    if (obj != 'top') {
+        objTop = $(objId).offset().top-50;
+    } else {
+        objTop = 0;
+    }
+    $('html,body').animate({
+        scrollTop: objTop
+    }, speed);
+}
+window.gotoTPoint = gotoTPoint;
+function sideFixed(){
+  var scrolltop = document.body.scrollTop || document.documentElement.scrollTop;
+  var a1 = 650;
+  var ww = $(window).width();
+  if(ww>540){
+    if(a1<=scrolltop){
+      $('.appgame-app-dl,#appgame-leftside-share').slideDown();
+      }
+    else{
+      $('.appgame-app-dl,#appgame-leftside-share').slideUp();
+      }
+    }
+  }
+
+$(function(){
+  sideFixed();
+  $(window).scroll(function(e) {
+    sideFixed();
+  });
+  $(".appgame-sidebar-glist li").mouseenter(function(e) {
+      if($(this).hasClass('current')){
+        
+        }
+      else{
+        $(this).parent('ul').find('li').removeClass('current');
+        $(this).addClass('current');
+        }
+    });
+    
+    $('.appgame-comments').click(function(e) {
+      $('html,body').animate({scrollTop:$('#appgame-comments').offset().top},400);
+    });
+  });
+/*$(window).load(function(e) {
+  ykplayer=document.getElementById('youku-player');
+  wmode=document.createElement('param');
+  wmode.name='wmode';
+  wmode.value='Opaque';
+  ykplayer.appendChild(wmode);
+});*/
+})
+  </script>
 </body>
   
