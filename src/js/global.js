@@ -16,6 +16,7 @@ require(['browser'],function(browser){
 
 require(['jquery','browser','modernizr'],function($,browser,modernizr){
   $(function(){
+    //开启右侧边栏
     require(['rightTips'],function(rightTips){rightTips.run();})
     //开启dropdown全局支持
     require(['jquery.dropdown'],$.noop);
@@ -37,6 +38,5 @@ require(['jquery','browser','modernizr'],function($,browser,modernizr){
       });
       return o;
     };
-
   });
 });
