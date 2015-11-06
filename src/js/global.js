@@ -16,6 +16,7 @@ require(['browser'],function(browser){
 
 require(['jquery','browser','modernizr'],function($,browser,modernizr){
   $(function(){
+    require(['rightTips'],function(rightTips){rightTips.run();})
     //开启dropdown全局支持
     require(['jquery.dropdown'],$.noop);
     

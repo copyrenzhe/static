@@ -47,6 +47,7 @@ var gulp        =   require('gulp'),
     _           =   require('underscore'),
     gutil       =   require('gulp-util'),
     sourcemaps  =   require('gulp-sourcemaps'),
+    del         =   require('del'),
     fs          =   require('fs');
 
 /**
@@ -99,6 +100,7 @@ gulp.task('less',function(){
 //处理js的相关
 gulp.task('script',function(){
     gutil.beep();
+    del([paths.scripts.dest+'app.js',paths.scripts.src+'app.js']);
     var otherFiles = [paths.scripts.src+'**/*.js'];
     appFiles.scripts.forEach(function(file){
         otherFiles.push("!"+file);
@@ -107,6 +109,7 @@ gulp.task('script',function(){
     gulp.src(appFiles.scripts)
         .pipe(sourcemaps.init())
         .pipe(plugins.concat('app.js'))
+        .pipe(isProduction ? plugins.rename({suffix:'.min'}) : gutil.noop())
         .pipe(plugins.footer(initRequireConfig({pro:isProduction})))
         .pipe(isProduction ? 
                     (plugins.uglify().on('error', function(e) { console.log('\x07',e.message); return this.end(); }))
@@ -169,7 +172,7 @@ function getPath(pro){
     if(!!pro){
         fpaths = _.mapObject(fpaths,function(v,k){
             var dir = v.match(/^.*(?=\/)/);
-            if(dir && concatConfig.indexOf('/js/'+dir[0]) != -1){
+            if(dir && appFiles.concatScripts.indexOf('/js/'+dir[0]) != -1){
                 return dir[0];
             }
             return v;

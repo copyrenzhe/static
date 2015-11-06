@@ -4,6 +4,7 @@
   "description": "a resource of static",
   "main": "index.js",
   "dependencies": {
+    "del": "^2.0.2",
     "gulp": "^3.9.0"
   },
   "devDependencies": {
