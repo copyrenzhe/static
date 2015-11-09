@@ -15,6 +15,7 @@
   "jquery.pagination": "plugin/pagination",
   "qrcode": "plugin/qrcode",
   "jquery.qrcode": "plugin/jquery.qrcode",
+  "jquery.lazyload": "plugin/jquery.lazyload",
 
   "jquery.ui": "other/jquery-ui",
   "pace": "other/pace",
