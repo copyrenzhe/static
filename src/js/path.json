@@ -13,6 +13,8 @@
   "jquery.focusInput": "plugin/focusInput",
   "jquery.dropdown": "plugin/dropdown",
   "jquery.pagination": "plugin/pagination",
+  "qrcode": "plugin/qrcode",
+  "jquery.qrcode": "plugin/jquery.qrcode",
 
   "jquery.ui": "other/jquery-ui",
   "pace": "other/pace",

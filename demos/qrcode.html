@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>二维码生成</title>
+  <link rel="stylesheet" href="/src/css/app.css">
+  <script src="/src/js/app.js"></script>
+</head>
+<body>
+    <h3>直接生成</h3>
+    <div class="mt10" id="qrcode1"></div>
+    <pre>
+    <code class="language-javascript">
+$("#qrcode1").qrcode("你好");
+    </code>
+  </pre>
+
+    <h3>各项参数</h3>
+    <div class="mt10" id="qrcode2"></div>
+    <pre>
+    <code class="language-javascript">
+$("#qrcode2").qrcode({
+  render: "canvas",
+  width: 256,
+  height: 256,
+  typeNumber  : -1,
+  correctLevel    : 2,
+  background      : "#ffffff",
+  foreground      : "#000000",
+  text: "http://www.ygdai.com"
+});
+    </code>
+  </pre>
+    <script>
+        require(['browser','jquery','jquery.qrcode'],function(browser,$){
+            if(browser>8){
+                require(['prism'],function(){
+                  Prism.highlightAll();
+                });
+            }
+            $('pre').each(function(){
+                var $this = $(this);
+                eval($this.text());
+            });
+        });
+    </script>
+</body>
