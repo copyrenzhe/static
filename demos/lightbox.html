@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片切换</title>
+    <link rel="stylesheet" href="/src/css/app.css">
+    <script type="text/javascript" src="/src/js/app.js"></script>
+</head>
+<body class="m10">
+    <h3>picbox</h3>
+    <ul>
+        <li><a rel="lightbox" class="ipic" href="http://www.haiying88.com:80/content/about/proof_img/ic_img.jpg" title=""><img src="http://www.haiying88.com:80/content/images/license_line.jpg" width="170" height="255"></a></li>
+        <li><a rel="lightbox" class="ipic" href="http://www.haiying88.com:80/content/about/proof_img/license_02_hover.jpg" title=""><img src="http://www.haiying88.com:80/content/images/license_02_line.jpg" width="170" height="200" class="mg_li"></a></li>
+        <li><a rel="lightbox" class="ipic" href="http://www.haiying88.com:80/content/about/proof_img/license_03_hover.jpg" title=""><img src="http://www.haiying88.com:80/content/images/license_03_line.jpg" width="204" height="139" class="mg_li"></a></li>
+        <li><a rel="lightbox" class="ipic" href="http://www.haiying88.com:80/content/about/proof_img/license_04_hover.jpg" title=""><img src="http://www.haiying88.com:80/content/images/license_04_line.jpg" width="204" height="158" class="mg_li"></a></li>
+    </ul>
+    <pre>
+    <code class="language-javascript">
+$(".ipic").picbox();
+    </code>
+    </pre>
+    <script>
+    require(['browser','jquery','jquery.picbox'],function(browser,$){
+        if(browser>8){
+            require(['prism'],function(){
+              Prism.highlightAll();
+            });
+        }
+        $("pre").each(function(){
+            var $this = $(this);
+            eval($this.text());
+        });
+    })
+    </script>
+</body>
+</html>

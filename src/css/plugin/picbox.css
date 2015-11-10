@@ -1,0 +1,69 @@
+/* PICBOX */
+
+#pbOverlay, #pbImage, #pbBottom {
+    position: fixed;
+    z-index: 99999999;
+}
+#pbOverlay {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #d6d6d6;
+    cursor: pointer;
+}
+.pbLoading { background: #d6d6d6 url(../../images/picbox/picbox-loading.gif) no-repeat center !important; }
+#pbImage {
+    background: #d6d6d6 no-repeat;
+    border: 2px solid #fff;
+    -moz-box-shadow: 0 0 20px #333;
+    -webkit-box-shadow: 0 0 20px #333;
+    box-shadow: 0 0 20px #333;
+    cursor: move;
+}
+#pbBottom {
+    width: 100%;
+    font: normal 16px/24px "Microsoft Yahei", "\5FAE\8F6F\96C5\9ED1", Verdana, Arial, sans-serif, "Times New Roman", "\5B8B\4F53";
+    color: #fff;
+    text-align: center;
+    bottom: 0;
+}
+#pbCaption {
+    width: 100%;
+    padding: 10px 0;
+    background-color: rgba(0,0,0,0.5);
+    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#B0000000, EndColorStr=#B0000000);
+}
+#pbPrevBtn, #pbNextBtn {
+    display: block;
+    width: 113px;
+    height: 221px;
+    margin-top: -110.5px;
+    outline: none;
+    position: absolute;
+    top: 50%;
+    background: url(../../images/picbox/picbox-navbtns.png) no-repeat;
+}
+#pbPrevBtn {
+    background-position: 0 -221px;
+    left: 20px;
+}
+#pbPrevBtn:hover { background-position: 0 0; }
+#pbPrevBtn.pbgreyed { background-position: 0 -442px; }
+#pbNextBtn {
+    background-position: -113px -221px;
+    right: 20px;
+}
+#pbNextBtn:hover { background-position: -113px 0; }
+#pbNextBtn.pbgreyed { background-position: -113px -442px; }
+
+/* END PICBOX */
+#closedbtn {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    right: 0;
+    background: #000 url(../../images/picbox/close.png) no-repeat;
+}

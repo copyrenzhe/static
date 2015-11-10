@@ -16,6 +16,8 @@
   "qrcode": "plugin/qrcode",
   "jquery.qrcode": "plugin/jquery.qrcode",
   "jquery.lazyload": "plugin/jquery.lazyload",
+  "picbox.core": "plugin/picbox.core",
+  "jquery.picbox": "plugin/jquery.picbox",
 
   "jquery.ui": "other/jquery-ui",
   "pace": "other/pace",

@@ -78,6 +78,9 @@ if(gutil.env.dev === true) {
     header          =   true;
 }
 
+gulp.task('delete',function(){
+    return del([paths.scripts.dest+'app.min.js',paths.scripts.src+'app.js']);
+});
 
 //编译less
 gulp.task('less',function(){
@@ -98,9 +101,8 @@ gulp.task('less',function(){
 });
 
 //处理js的相关
-gulp.task('script',function(){
+gulp.task('script',['delete'],function(){
     gutil.beep();
-    del([paths.scripts.dest+'app.min.js',paths.scripts.src+'app.js']);
     var otherFiles = [paths.scripts.src+'**/*.js'];
     appFiles.scripts.forEach(function(file){
         otherFiles.push("!"+file);
@@ -128,7 +130,6 @@ gulp.task('script',function(){
     appFiles.concatScripts.forEach(function(file){
         var files = paths.scripts.src + file + '/*.js';
         otherFiles.push("!"+files);
-
         gulp.src(files)
             .pipe(sourcemaps.init())
             .pipe(isProduction ? 
