@@ -22,6 +22,7 @@
   "jquery.ui": "other/jquery-ui",
   "pace": "other/pace",
   "prism": "other/prism",
-
+  
+  "consoleInfo": "other/consoleInfo",
   "rightTips": "other/rightTips"
 }

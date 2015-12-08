@@ -10,7 +10,7 @@ require(['browser'],function(browser){
   }
   if(browser>7){
     //开启input focus追踪
-    require(['jquery.focusInput'],function($){$.focusInput();});
+    require(['jquery.focusInput','consoleInfo'],function($){$.focusInput();});
   }
 });
 

@@ -205,6 +205,5 @@ define('jquery.pagination',['jquery','underscore'],function($,_){
     })
   }
   $.fn.pagination = Plugin;
-  $.fn.pagination.Constructor = Pagination;
 
 });
