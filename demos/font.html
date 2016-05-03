@@ -3,11 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>前端通用组件库</title>
-  <link rel="stylesheet" href="/src/css/app.css">
-  <script src="/src/js/app.js"></script>
+  <link rel="stylesheet" href="../src/css/app.css">
+  <script src="../src/js/app.js"></script>
 </head>
 <body class="m10">
   <div class="row clearfix fs20">
+    <pre>
+      <code class="language-javascript">
+      使用方法：
+        class="fa fa-adjust"
+      </code>
+    </pre>
     <div class="item">
       <i class="fa fa-fw"></i>
       fa-adjust
@@ -4160,5 +4166,14 @@
     </div>
     
   </div>
+  <script>
+      require(['browser','jquery'],function(browser,$){
+          if(browser>8){
+              require(['prism'],function(){
+                Prism.highlightAll();
+              });
+          }
+      });
+  </script>
 </body>
 </html>

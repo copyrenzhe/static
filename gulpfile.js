@@ -34,7 +34,7 @@ var appFiles = {
     concatScripts : ['lib','plugin'],
 }
 
-var devbaseUrl = "http://static.dev/src/js",
+var devbaseUrl = "/static/src/js",
     probaseUrl = "http://static.vwoke.com/dist/js";
 var version    = "1.0";
 
