@@ -24,5 +24,11 @@
   "prism": "other/prism",
   
   "consoleInfo": "other/consoleInfo",
-  "rightTips": "other/rightTips"
+  "rightTips": "other/rightTips",
+  "miniLightbox": "other/mini-lightbox",
+  "base64": "other/base64",
+
+  "iscroll" : "other/iscroll-zoom",
+  "hammer" : "other/hammer",
+  "jquery.photoClip" : "other/jquery.photoClip"
 }
