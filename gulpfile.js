@@ -34,11 +34,6 @@ var appFiles = {
     concatScripts : ['lib','plugin'],
 }
 
-var envs = getEnv();
-var devbaseUrl  = envs.devbaseUrl,
-    testbaseUrl = envs.testbaseUrl,
-    probaseUrl  = envs.probaseUrl,
-    version     = envs.version;
 
 /**
  * gulp plugins
@@ -65,6 +60,13 @@ var banner = ['/**',
                 ''
             ].join('\n');
 
+
+var envs = getEnv();
+var devbaseUrl  = envs.devbaseUrl,
+    testbaseUrl = envs.testbaseUrl,
+    probaseUrl  = envs.probaseUrl,
+    version     = envs.version;
+
 /**
  * args
  * Allow gulp --dev to be run for more output
@@ -78,6 +80,11 @@ if(gutil.env.dev === true) {
     isProduction    =   false;
     sourceMap       =   true;
     header          =   true;
+}
+if(gutil.env.test === true) {
+    isProduction    =   true,
+    sourceMap       =   false,
+    header          =   false;
 }
 
 gulp.task('delete',function(){
@@ -160,6 +167,19 @@ gulp.task('script',['delete'],function(){
 gulp.task('clean',function(){
     return  gulp.src(dist,{read:false})
                 .pipe(plugins.clean());
+});
+
+/**
+ * 监控模式
+ * 监控源文件中less变化与js变化
+ */
+gulp.task('watch', function(){
+    //build src less
+    console.log('开始监听'+paths.less.src+'includes/**/*.less 与 '+paths.less.src+'includes/*.less');
+    gulp.watch([paths.less.src+'includes/**/*.less', paths.less.src+'includes/*.less'],['less']);
+    //build src scripts
+    console.log('开始监听'+paths.scripts.src+'**/*.js');
+    gulp.watch([paths.scripts.src+'**/*.js', paths.scripts.src+'*.js'],['script']);
 });
 
 gulp.task('default',['less','script']);
