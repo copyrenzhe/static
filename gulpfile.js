@@ -34,9 +34,11 @@ var appFiles = {
     concatScripts : ['lib','plugin'],
 }
 
-var devbaseUrl = "/static/src/js",
-    probaseUrl = "http://static.vwoke.com/dist/js";
-var version    = "1.0";
+var envs = getEnv();
+var devbaseUrl  = envs.devbaseUrl,
+    testbaseUrl = envs.testbaseUrl,
+    probaseUrl  = envs.probaseUrl,
+    version     = envs.version;
 
 /**
  * gulp plugins
@@ -165,6 +167,12 @@ gulp.task('default',['less','script']);
 /**
  * 自定义函数
  */
+
+//获取环境URL，用于区分不同用户的开发URL
+function getEnv(){
+    var envs = JSON.parse(fs.readFileSync('./.env'));
+    return envs;
+}
 
 //获取path.json的路径
 //注意path.json最后一项不能有分号，否则 JSON.parse方法会报错' Unexpected token } '
