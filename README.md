@@ -14,10 +14,11 @@ npm install
 ### 介绍
 >使用[gulp](https://github.com/gulpjs/gulp) 处理构建
 >运行：
->  gulp --dev      *以开发模式生成app.js 和app.css*
->  gulp                *以生产模式生成*
->  gulp script     *只处理js相关*
->  gulp less       *编译less*
+>  gulp --dev       *以开发模式生成app.js 和app.css*
+>  gulp             *以生产模式生成*
+>  gulp script      *只处理js相关*
+>  gulp less        *编译less*
+>  gulp watch --dev *监听文件变化，并立刻使用script或less进行处理*
 
 ### 目录
 * dist: 工程
