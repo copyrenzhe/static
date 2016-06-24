@@ -103,7 +103,7 @@ gulp.task('less',function(){
                 .pipe(plugins.autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
                 .pipe(isProduction ? plugins.cssmin() : gutil.noop())
                 .pipe(isProduction ? plugins.rename({suffix:'.min'}) : gutil.noop())
-                .pipe(postcss(processors).on('error', function(e) {console.log('\x07', e.message); return this.end(); }))
+                // .pipe(postcss(processors).on('error', function(e) {console.log('\x07', e.message); return this.end(); }))
                 .pipe(header ? plugins.header(banner,{ pkg : pkg }) : gutil.noop())
                 .pipe(sourceMap ? sourcemaps.write() : gutil.noop())
                 .pipe(isProduction ? 
