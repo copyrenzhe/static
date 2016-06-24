@@ -9,7 +9,11 @@ git clone https://github.com/copyrenzhe/static.git
 cd static
 npm install -g gulp
 npm install
+cp .env.example .env
 ```
+修改.env中的devbaseUrl与probaseUrl为相应路径  
+其中devbaseUrl对应 gulp --dev 开发模式  
+probaseUrl 对应 gulp 生产模式  
 
 ### 介绍
 >使用[gulp](https://github.com/gulpjs/gulp) 处理构建
