@@ -179,10 +179,10 @@ gulp.task('clean',function(){
  */
 gulp.task('watch', function(){
     //build src less
-    console.log('开始监听'+paths.less.src+'includes/**/*.less 与 '+paths.less.src+'includes/*.less');
+    gutil.log(gutil.colors.green('开始监听'+paths.less.src+'includes/**/*.less 与 '+paths.less.src+'includes/*.less'));
     gulp.watch([paths.less.src+'includes/**/*.less', paths.less.src+'includes/*.less'],['less']);
     //build src scripts
-    console.log('开始监听'+paths.scripts.src+'**/*.js');
+    gutil.log(gutil.colors.green('开始监听'+paths.scripts.src+'**/*.js'));
     gulp.watch([paths.scripts.src+'**/*.js', paths.scripts.src+'*.js'],['script']);
 });
 
