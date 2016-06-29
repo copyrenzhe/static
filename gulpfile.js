@@ -45,8 +45,10 @@ var gulp        =   require('gulp'),
     gutil       =   require('gulp-util'),
     sourcemaps  =   require('gulp-sourcemaps'),
     postcss     =   require('gulp-postcss'),
+    imagemin    =   require('gulp-imagemin'),
     px2rem      =   require('postcss-px2rem'),
     del         =   require('del'),
+    combiner    =   require('stream-combiner2'),
     fs          =   require('fs');
 
 /**
@@ -171,6 +173,18 @@ gulp.task('script',['delete'],function(){
 gulp.task('clean',function(){
     return  gulp.src(dist,{read:false})
                 .pipe(plugins.clean());
+});
+
+gulp.task('images', function(){
+    gulp.src(paths.images.src+'**/*.*')
+        .pipe(imagemin({
+            progressive: true
+        }))
+        .on('error', function(err){
+            gutil.log('Images Error!', err.message);
+            this.end();
+        })
+        .pipe(gulp.dest(paths.images.dest));
 });
 
 /**
